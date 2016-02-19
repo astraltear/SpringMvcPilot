@@ -6,6 +6,7 @@ spec
 	commons-dbcp
 	log4jdbc-log4j2
 	mybatis
+	lombok ( https://projectlombok.org/index.html, http://lancerme.tistory.com/15)
 	
 info
 	프로젝트 빌드

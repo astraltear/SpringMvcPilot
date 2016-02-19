@@ -19,8 +19,9 @@ public class MemberDAOTest {
 	MemberDAO memberDAO;
 
 	@Test
-	public void test() {
+	public void test() throws Exception {
 		System.out.println("memberDAO.getTime():::"+memberDAO.getTime());
+		System.out.println("memberDAO.readMember()>>>>>>"+memberDAO.readMember("test11"));
 	}
 
 }

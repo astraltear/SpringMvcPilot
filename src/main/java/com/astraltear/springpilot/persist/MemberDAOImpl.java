@@ -28,8 +28,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public MemberVO readMember(String userid) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(namespace+".selectMember",userid);
 	}
 
 	@Override
