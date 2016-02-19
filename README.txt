@@ -15,6 +15,7 @@ config
 		servlet api 2.5 -> 3.1.0   
 		spring jdbc, mysql driver, dbcp 
 		spring test
+		log4jdbc-log4j2
 		
 	root-context.xml
 		property-placeholder(database.properties)
@@ -26,6 +27,7 @@ histroy
 	1. 데이터 베이스 연결 테스트 클래스 작성(MySqlConnectionTest)
 	2. DataSourceTest
 	3. 스프링 dataSource 동적 변경
+	4. log4jdbc를 적용한  database pool 설정( log4jdbc.log4j2.properties, logback.xml)
 	
 
 trouble shooting

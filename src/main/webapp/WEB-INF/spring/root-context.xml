@@ -13,6 +13,21 @@
 		<property name="url" value="${database.run.url}" />
 		<property name="username" value="${database.run.username}" />
 		<property name="password" value="${database.run.password}" />
+		<property name="initialSize" value="${database.common.initialSize}" />
+		<property name="maxActive" value="${database.common.maxActive}" />
+		<property name="maxWait" value="${database.common.maxWait}" />
+		<property name="maxIdle" value="${database.common.maxIdle}" />
+		<property name="minIdle" value="${database.common.minIdle}" />
+		<property name="testOnBorrow" value="${database.common.testOnBorrow}" />
+		<property name="testOnReturn" value="${database.common.testOnReturn}" />
+		<property name="validationQuery" value="${database.common.validationQuery}" />
+		<property name="testWhileIdle" value="${database.common.testWhileIdle}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${database.common.timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${database.common.minEvictableIdleTimeMillis}" />
+		<property name="numTestsPerEvictionRun" value="${database.common.numTestsPerEvictionRun}" />
+		<property name="removeAbandonedTimeout" value="${database.common.removeAbandonedTimeout}" />
+		<property name="removeAbandoned" value="${database.common.removeAbandoned}" />
+		<property name="logAbandoned" value="${database.common.logAbandoned}" />
 	</bean>
 
 	<bean id="devDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -20,6 +35,21 @@
 		<property name="url" value="${database.dev.url}" />
 		<property name="username" value="${database.dev.username}" />
 		<property name="password" value="${database.dev.password}" />
+		<property name="initialSize" value="${database.common.initialSize}" />
+		<property name="maxActive" value="${database.common.maxActive}" />
+		<property name="maxWait" value="${database.common.maxWait}" />
+		<property name="maxIdle" value="${database.common.maxIdle}" />
+		<property name="minIdle" value="${database.common.minIdle}" />
+		<property name="testOnBorrow" value="${database.common.testOnBorrow}" />
+		<property name="testOnReturn" value="${database.common.testOnReturn}" />
+		<property name="validationQuery" value="${database.common.validationQuery}" />
+		<property name="testWhileIdle" value="${database.common.testWhileIdle}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${database.common.timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${database.common.minEvictableIdleTimeMillis}" />
+		<property name="numTestsPerEvictionRun" value="${database.common.numTestsPerEvictionRun}" />
+		<property name="removeAbandonedTimeout" value="${database.common.removeAbandonedTimeout}" />
+		<property name="removeAbandoned" value="${database.common.removeAbandoned}" />
+		<property name="logAbandoned" value="${database.common.logAbandoned}" />
 	</bean>
 
 	<bean id="dataSource" class="com.astraltear.springpilot.persist.CustomerRoutingDataSource">

@@ -8,8 +8,13 @@ import org.junit.Test;
 
 public class MySqlConnectionTest {
 	
-	private static final String DRIVER="com.mysql.jdbc.Driver";
-	private static final String URL="jdbc:mysql://127.0.0.1/spring_bank_app_db";
+/*	private static final String DRIVER="com.mysql.jdbc.Driver";
+	private static final String URL="jdbc:mysql://127.0.0.1:3306/spring_mvc";*/
+	
+	private static final String DRIVER="net.sf.log4jdbc.sql.jdbcapi.DriverSpy";
+	private static final String URL="jdbc:log4jdbc:mysql://127.0.0.1:3306/spring_mvc";
+	
+	
 	private static final String user="test";
 	private static final String pw="test";
 
@@ -22,6 +27,8 @@ public class MySqlConnectionTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("END!!!!!!!!!!!!!!!");
 	}
 
 }
