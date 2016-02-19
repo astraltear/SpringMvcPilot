@@ -17,7 +17,12 @@ info
 			org.apache.maven.plugins
 				<source>1.8</source>
 				<target>1.8</target>
-	
+				
+	http://brad2014.tistory.com/322
+		<annotation-driven /> : HandlerMapping 와  HandlerAdapte을 등록
+		<context:component-scan />을 정의한 경우 Annotation 인식을 위한 설정  (@Component,@Repository,@Service,@Controller)
+		<context:annotation-config/> 을 별도로 추가하지 않아도 된다.
+		
 
 config
 	pom.xml
