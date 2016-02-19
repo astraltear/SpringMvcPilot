@@ -3,11 +3,20 @@ spec
 	tomcat 8.0.30
 	spring 4.2.2.RELEASE
 	junit vesion 4.11
+	commons-dbcp
+	log4jdbc-log4j2
+	mybatis
 	
 info
 	프로젝트 빌드
 		Maven>update project
 		Run>Maven build > goal: clean package
+		
+	메이븐 자바 컴파일러 버전 변경
+		pom.xml
+			org.apache.maven.plugins
+				<source>1.8</source>
+				<target>1.8</target>
 	
 
 config
@@ -28,10 +37,13 @@ histroy
 	2. DataSourceTest
 	3. 스프링 dataSource 동적 변경
 	4. log4jdbc를 적용한  database pool 설정( log4jdbc.log4j2.properties, logback.xml)
+	5. mybatis 연동 (sqlSessionFactory , mybatis-config.xml, *Mapper.xml)
+	6. sqlSession
 	
 
 trouble shooting
 	servlet api 2.5와 3.1.0의 차이는 artifactId가 변경됨.
 	As of Spring Framework 4.1, this class requires JUnit 4.9 or higher.
 	
-		
+
+<context:annotation-config/>  <annotation-driven />  차이

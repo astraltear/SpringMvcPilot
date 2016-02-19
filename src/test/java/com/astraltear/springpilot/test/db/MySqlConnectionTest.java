@@ -1,4 +1,4 @@
-package com.astraltear.springpilot.db;
+package com.astraltear.springpilot.test.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
