@@ -10,20 +10,20 @@ spec
 	jackson
 	
 info
-	ÇÁ·ÎÁ§Æ® ºôµå
+	í”„ë¡œì íŠ¸ ë¹Œë“œ
 		Maven>update project
 		Run>Maven build > goal: clean package
 		
-	¸ŞÀÌºì ÀÚ¹Ù ÄÄÆÄÀÏ·¯ ¹öÀü º¯°æ
+	ë©”ì´ë¸ ìë°” ì»´íŒŒì¼ëŸ¬ ë²„ì „ ë³€ê²½
 		pom.xml
 			org.apache.maven.plugins
 				<source>1.8</source>
 				<target>1.8</target>
 				
 	http://brad2014.tistory.com/322
-		<annotation-driven /> : HandlerMapping ¿Í  HandlerAdapteÀ» µî·Ï
-		<context:component-scan />À» Á¤ÀÇÇÑ °æ¿ì Annotation ÀÎ½ÄÀ» À§ÇÑ ¼³Á¤  (@Component,@Repository,@Service,@Controller)
-		<context:annotation-config/> À» º°µµ·Î Ãß°¡ÇÏÁö ¾Ê¾Æµµ µÈ´Ù.
+		<annotation-driven /> : HandlerMapping ì™€  HandlerAdapteì„ ë“±ë¡
+		<context:component-scan />ì„ ì •ì˜í•œ ê²½ìš° Annotation ì¸ì‹ì„ ìœ„í•œ ì„¤ì •  (@Component,@Repository,@Service,@Controller)
+		<context:annotation-config/> ì„ ë³„ë„ë¡œ ì¶”ê°€í•˜ì§€ ì•Šì•„ë„ ëœë‹¤.
 		
 
 config
@@ -40,19 +40,19 @@ config
 
 
 histroy
-	1. µ¥ÀÌÅÍ º£ÀÌ½º ¿¬°á Å×½ºÆ® Å¬·¡½º ÀÛ¼º(MySqlConnectionTest)
+	1. ë°ì´í„° ë² ì´ìŠ¤ ì—°ê²° í…ŒìŠ¤íŠ¸ í´ë˜ìŠ¤ ì‘ì„±(MySqlConnectionTest)
 	2. DataSourceTest
-	3. ½ºÇÁ¸µ dataSource µ¿Àû º¯°æ
-	4. log4jdbc¸¦ Àû¿ëÇÑ  database pool ¼³Á¤( log4jdbc.log4j2.properties, logback.xml)
-	5. mybatis ¿¬µ¿ (sqlSessionFactory , mybatis-config.xml, *Mapper.xml)
+	3. ìŠ¤í”„ë§ dataSource ë™ì  ë³€ê²½
+	4. log4jdbcë¥¼ ì ìš©í•œ  database pool ì„¤ì •( log4jdbc.log4j2.properties, logback.xml)
+	5. mybatis ì—°ë™ (sqlSessionFactory , mybatis-config.xml, *Mapper.xml)
 	6. sqlSession
 	7. mybatis typeAliases
 	8. jackson dependencies
 	
 
 trouble shooting
-	servlet api 2.5¿Í 3.1.0ÀÇ Â÷ÀÌ´Â artifactId°¡ º¯°æµÊ.
+	servlet api 2.5ì™€ 3.1.0ì˜ ì°¨ì´ëŠ” artifactIdê°€ ë³€ê²½ë¨.
 	As of Spring Framework 4.1, this class requires JUnit 4.9 or higher.
 	
 
-<context:annotation-config/>  <annotation-driven />  Â÷ÀÌ
+<context:annotation-config/>  <annotation-driven />  ì°¨ì´
