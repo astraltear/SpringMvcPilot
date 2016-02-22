@@ -7,6 +7,7 @@ spec
 	log4jdbc-log4j2
 	mybatis
 	lombok ( https://projectlombok.org/index.html, http://lancerme.tistory.com/15)
+	jackson
 	
 info
 	프로젝트 빌드
@@ -45,6 +46,8 @@ histroy
 	4. log4jdbc를 적용한  database pool 설정( log4jdbc.log4j2.properties, logback.xml)
 	5. mybatis 연동 (sqlSessionFactory , mybatis-config.xml, *Mapper.xml)
 	6. sqlSession
+	7. mybatis typeAliases
+	8. jackson dependencies
 	
 
 trouble shooting

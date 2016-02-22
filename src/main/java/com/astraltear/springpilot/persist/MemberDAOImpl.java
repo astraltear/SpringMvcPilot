@@ -28,7 +28,7 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public MemberVO readMember(String userid) throws Exception {
-		return sqlSession.selectOne(namespace+".selectMember",userid);
+		return sqlSession.selectOne(namespace+".readMember",userid);
 	}
 
 	@Override
