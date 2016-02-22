@@ -9,19 +9,18 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.astraltear.springpilot.persist.MemberDAO;
+import com.astraltear.springpilot.service.MemberService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"file:src/main/webapp/WEB-INF/spring/**/*.xml"})
-public class MemberDAOTest {
-	
-	@Inject
-	MemberDAO memberDAO;
+public class MemberServiceTest {
 
+	@Inject
+	MemberService memberService;
+	
 	@Test
-	public void test() throws Exception {
-		System.out.println("memberDAO.getTime():::"+memberDAO.getTime());
-//		System.out.println("memberDAO.readMember()>>>>>>"+memberDAO.readMember("test11"));
+	public void test() {
+		memberService.readMember("test11");
 	}
 
 }
