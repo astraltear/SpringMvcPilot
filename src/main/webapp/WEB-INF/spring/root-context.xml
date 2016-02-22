@@ -7,6 +7,14 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
 	<context:property-placeholder location="classpath:database.properties" />
+<!-- 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:database.properties</value>
+			</list>
+		</property>
+		<property name="fileEncoding" value="UTF-8" />
+	</bean> -->
 
 	<bean id="runDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${database.run.driverClassName}" />

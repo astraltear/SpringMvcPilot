@@ -20,6 +20,9 @@ public class PropertyReadTest {
 	@Value("${database.run.driverClassName}")
 	private String className;
 	
+	@Value("${database.run.url}")
+	private String runUrl;
+	
 	@Autowired
 	Environment env;
 
@@ -27,6 +30,7 @@ public class PropertyReadTest {
 	public void test() {
 		System.out.println(runType);
 		System.out.println(className);
+		System.out.println(runUrl);
 		System.out.println(env.getProperty("database.run.driverClassName"));
 	}
 
