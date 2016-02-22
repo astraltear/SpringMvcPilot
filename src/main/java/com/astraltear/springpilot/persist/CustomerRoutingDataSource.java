@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
-
+@PropertySource("classpath:database.properties")
 public class CustomerRoutingDataSource extends AbstractRoutingDataSource {
 	private static final Logger log = LoggerFactory.getLogger(CustomerRoutingDataSource.class);
 	
