@@ -3,13 +3,14 @@ spec
 	tomcat 8.0.30
 	spring 4.2.2.RELEASE
 	junit vesion 4.11
-	commons-dbcp
+	commons-dbcp2
 	log4jdbc-log4j2
 	mybatis
 	lombok ( https://projectlombok.org/index.html, http://lancerme.tistory.com/15)
 	jackson
 	
 info
+	DBCP2 사용 설정 최적화 
 	프로젝트 빌드
 		Maven>update project
 		Run>Maven build > goal: clean package
