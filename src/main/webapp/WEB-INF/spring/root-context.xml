@@ -16,10 +16,10 @@
 		<property name="fileEncoding" value="UTF-8" />
 	</bean> -->
 	
-	<bean id="abstractDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<bean id="abstractDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="initialSize" value="${database.common.initialSize}" />
-		<property name="maxActive" value="${database.common.maxActive}" />
-		<property name="maxWait" value="${database.common.maxWait}" />
+		<property name="maxTotal" value="${database.common.maxTotal}" />
+		<property name="maxWaitMillis" value="${database.common.maxWaitMills}" />
 		<property name="maxIdle" value="${database.common.maxIdle}" />
 		<property name="minIdle" value="${database.common.minIdle}" />
 		<property name="testOnBorrow" value="${database.common.testOnBorrow}" />
@@ -30,8 +30,7 @@
 		<property name="minEvictableIdleTimeMillis" value="${database.common.minEvictableIdleTimeMillis}" />
 		<property name="numTestsPerEvictionRun" value="${database.common.numTestsPerEvictionRun}" />
 		<property name="removeAbandonedTimeout" value="${database.common.removeAbandonedTimeout}" />
-		<property name="removeAbandoned" value="${database.common.removeAbandoned}" />
-		<property name="logAbandoned" value="${database.common.logAbandoned}" />
+		<property name="removeAbandonedOnBorrow" value="${database.common.removeAbandonedOnBorrow}" />
 	</bean>
 
 	<bean id="runDataSource" parent="abstractDataSource">
