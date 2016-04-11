@@ -1,9 +1,13 @@
 package com.astraltear.springpilot.persist;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.astraltear.springpilot.domain.MemberVO;
 
@@ -27,8 +31,16 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
+	
 	public MemberVO readMember(String userid) throws Exception {
 		return sqlSession.selectOne(namespace+".readMember",userid);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public List readMemberAll() throws Exception {
+		return sqlSession.selectList(namespace+".readMemberAll");
+		
 	}
 
 	@Override
