@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
-	<!-- Enables the Spring MVC @Controller programming model -->
 	<context:property-placeholder location="classpath:database.properties" />
-	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> <property name="locations"> <list> 
-		<value>classpath:database.properties</value> </list> </property> <property name="fileEncoding" value="UTF-8" /> </bean> -->
-
-	<bean id="abstractDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+<!-- 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:database.properties</value>
+			</list>
+		</property>
+		<property name="fileEncoding" value="UTF-8" />
+	</bean> -->
+	
+	<bean id="abstractDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="initialSize" value="${database.common.initialSize}" />
-		<property name="maxActive" value="${database.common.maxActive}" />
-		<property name="maxWait" value="${database.common.maxWait}" />
+		<property name="maxTotal" value="${database.common.maxTotal}" />
+		<property name="maxWaitMillis" value="${database.common.maxWaitMills}" />
 		<property name="maxIdle" value="${database.common.maxIdle}" />
 		<property name="minIdle" value="${database.common.minIdle}" />
 		<property name="testOnBorrow" value="${database.common.testOnBorrow}" />
@@ -26,42 +30,35 @@
 		<property name="minEvictableIdleTimeMillis" value="${database.common.minEvictableIdleTimeMillis}" />
 		<property name="numTestsPerEvictionRun" value="${database.common.numTestsPerEvictionRun}" />
 		<property name="removeAbandonedTimeout" value="${database.common.removeAbandonedTimeout}" />
-		<property name="removeAbandoned" value="${database.common.removeAbandoned}" />
-		<property name="logAbandoned" value="${database.common.logAbandoned}" />
-	</bean>
-<!-- 
-	<bean id="masterDataSource" parent="abstractDataSource">
-		<property name="driverClassName" value="${database.master.driverClassName}" />
-		<property name="url" value="${database.master.url}" />
-		<property name="username" value="${database.master.username}" />
-		<property name="password" value="${database.master.password}" />
-		<property name="defaultAutoCommit" value="false" />
-
+		<property name="removeAbandonedOnBorrow" value="${database.common.removeAbandonedOnBorrow}" />
 	</bean>
 
-	<bean id="slaveDataSource" parent="abstractDataSource">
-		<property name="driverClassName" value="${database.slave.driverClassName}" />
-		<property name="url" value="${database.slave.url}" />
-		<property name="username" value="${database.slave.username}" />
-		<property name="password" value="${database.slave.password}" />
-		<property name="defaultAutoCommit" value="false" />
-	</bean> 
--->
-
-	<bean id="replicationDataSource" parent="abstractDataSource">
-		<property name="driverClassName" value="${database.replication.driverClassName}" />
-		<property name="url" value="${database.replication.url}" />
-		<property name="username" value="${database.replication.username}" />
-		<property name="password" value="${database.replication.password}" />
-		<property name="defaultAutoCommit" value="false"/>
+	<bean id="runDataSource" parent="abstractDataSource">
+		<property name="driverClassName" value="${database.run.driverClassName}" />
+		<property name="url" value="${database.run.url}" />
+		<property name="username" value="${database.run.username}" />
+		<property name="password" value="${database.run.password}" />
 	</bean>
 
-<!-- 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="replicationDataSource" />
+	<bean id="devDataSource" parent="abstractDataSource">
+		<property name="driverClassName" value="${database.dev.driverClassName}" />
+		<property name="url" value="${database.dev.url}" />
+		<property name="username" value="${database.dev.username}" />
+		<property name="password" value="${database.dev.password}" />
+	</bean>
+
+<!-- 	<bean id="dataSource" class="com.astraltear.springpilot.persist.CustomerRoutingDataSource">
+		<property name="targetDataSources">
+			<map>
+				<entry key="DEV" value-ref="devDataSource" />
+				<entry key="RUN" value-ref="runDataSource" />
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="devDataSource" />
 	</bean> -->
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="replicationDataSource" />
+		<property name="dataSource" ref="${database.type}" />
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
 		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	</bean>
@@ -70,7 +67,5 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
-
-	<tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>
